@@ -11,7 +11,7 @@ public class Knight extends Hero {
                 foe.hp += foe.armor.value;
                 foe.armor.value = 0;
             }
-            System.out.println(this.name + " menyerang " + foe.name + " dengan pedang dan mengurangi " + this.senjata.ap + " Armor");
+            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.name + " dan mengurangi " + this.senjata.ap + " Armor");
         } else {
             int damage = this.senjata.ap;
             foe.hp -= damage;

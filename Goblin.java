@@ -1,10 +1,10 @@
-public class Dragon extends Foe {
-    public Dragon (String name, String race, Senjata senjata, Armor armor, int hp, int mp, Skill skill, int level){
+public class Goblin extends Foe {
+    public Goblin (String name, String race, Senjata senjata, Armor armor, int hp, int mp, Skill skill, int level){
         super(name, race, senjata, armor, hp, mp, skill, level);
     }
 
     @Override
-    public void attack(Character hero){
+    public void attack (Character hero){
         if (hero.armor.value > 0) {
             hero.armor.value -= this.senjata.ap;
             if (hero.armor.value < 0) {
@@ -20,13 +20,11 @@ public class Dragon extends Foe {
     }
 
     @Override
-    public void useSkill(Character hero){
-        if (this.skill.name == "Fire") {
-            if (this.mp >= this.skill.mpCost) {
-                this.mp -= this.skill.mpCost;
-                hero.addStatus("Weak");
-                System.out.println(this.name + " menggunakan skill 'Fire' pada " + hero.name);
-            }
+    public void useSkill (Character hero){
+        if (this.skill.name.equals("Gigit")) {
+            this.mp -= this.skill.mpCost;
+            hero.addStatus("Poison");
+            System.out.println(this.name + " menggunakan skill 'Gigit' pada " + hero.name);
         }
     }
 }
