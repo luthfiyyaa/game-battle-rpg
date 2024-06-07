@@ -1,7 +1,7 @@
 public class Item {
-    String name;
-    int hpIncrease;
-    int mpIncrease;
+    private String name;
+    private int hpIncrease;
+    private int mpIncrease;
 
     public Item(String name, int hpIncrease, int mpIncrease) {
         this.name = name;
@@ -25,7 +25,7 @@ public class Item {
         this.hpIncrease = hpIncrease;
     }
 
-    public int getMp() {
+    public int getMpIncrease() {
         return mpIncrease;
     }
 

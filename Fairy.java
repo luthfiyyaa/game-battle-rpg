@@ -5,29 +5,29 @@ public class Fairy extends Hero implements Healable {
 
     @Override
     public void attack (Character foe){
-        if (foe.armor.value > 0) {
-            foe.armor.value -= this.senjata.ap;
-            if (foe.armor.value < 0) {
-                foe.hp += foe.armor.value;
-                foe.armor.value = 0;
+        if (foe.armor.getValue() > 0) {
+            foe.armor.setValue(this.armor.getValue() - this.senjata.getAp());
+            if (foe.armor.getValue() < 0) {
+                foe.hp += foe.armor.getValue();
+                foe.armor.setValue(0);;
             }
-            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.name + " dan mengurangi " + this.senjata.ap + " Armor");
+            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.getName() + " dan mengurangi " + this.senjata.getAp() + " Armor");
         } else {
-            int damage = this.senjata.ap;
+            int damage = this.senjata.getAp();
             foe.hp -= damage;
-            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.name + " dan mengurangi " + damage + " HP");
+            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.getName() + " dan mengurangi " + damage + " HP");
         }
     }
 
     @Override
     public void useSkill(Character foe){
-        if (this.skill.name == "Healing") {
-            if (this.mp >= this.skill.mpCost) {
-                this.mp -= this.skill.mpCost;
+        if (this.skill.getNameSkill() == "Healing") {
+            if (this.mp >= this.skill.getMpCost()) {
+                this.mp -= this.skill.getMpCost();
                 foe.hp += 10;
-                System.out.println(this.name + " menggunakan " + this.skill.name + " dan mengembalikan " + this.skill.damage + " HP");
+                System.out.println(this.name + " menggunakan " + this.skill.getNameSkill() + " dan mengembalikan " + this.skill.getDamage() + " HP");
                 } else {
-                    System.out.println(this.name + " tidak memiliki MP untuk menggunakan " + this.skill.name);
+                    System.out.println(this.name + " tidak memiliki MP untuk menggunakan " + this.skill.getNameSkill());
                 }
         }
     }

@@ -42,8 +42,8 @@ public abstract class Character {
             this.statusEffect.remove("Poison");
             System.out.println("Poison status effect removed!");
         } else {
-            this.hp += item.hpIncrease;
-        this.mp += item.mpIncrease;
+            this.hp += item.getHpIncrease();
+        this.mp += item.getMpIncrease();
         System.out.println("HP/MP restored!");
         }
     }
@@ -52,7 +52,7 @@ public abstract class Character {
         System.out.println("Status " + name + " (Level " + level + "):");
         System.out.println("HP: " + hp + "/" + calculateMaxHP());
         System.out.println("MP: " + mp + "/" + calculateMaxMP());
-        System.out.println("Armor: " + armor.value);
+        System.out.println("Armor: " + armor.getValue());
         System.out.println("=====================");
     }
 

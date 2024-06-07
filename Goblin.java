@@ -5,24 +5,24 @@ public class Goblin extends Foe {
 
     @Override
     public void attack (Character hero){
-        if (hero.armor.value > 0) {
-            hero.armor.value -= this.senjata.ap;
-            if (hero.armor.value < 0) {
-                hero.hp += hero.armor.value;
-                hero.armor.value = 0;
+        if (hero.armor.getValue() > 0) {
+            hero.armor.setValue(this.armor.getValue() - this.senjata.getAp());
+            if (hero.armor.getValue() < 0) {
+                hero.hp += hero.armor.getValue();
+                hero.armor.setValue(0);;
             }
-            System.out.println(this.name + " menyerang " + hero.name + " dengan " + this.senjata.name + " dan mengurangi " + this.senjata.ap + " Armor");
+            System.out.println(this.name + " menyerang " + hero.name + " dengan " + this.senjata.getName() + " dan mengurangi " + this.senjata.getAp() + " Armor");
         } else {
-            int damage = this.senjata.ap;
+            int damage = this.senjata.getAp();
             hero.hp -= damage;
-            System.out.println(this.name + " menyerang " + hero.name + " dengan " + this.senjata.name + " dan mengurangi " + damage + " HP");
+            System.out.println(this.name + " menyerang " + hero.name + " dengan " + this.senjata.getName() + " dan mengurangi " + damage + " HP");
         }
     }
 
     @Override
     public void useSkill (Character hero){
-        if (this.skill.name.equals("Gigit")) {
-            this.mp -= this.skill.mpCost;
+        if (this.skill.getNameSkill().equals("Gigit")) {
+            this.mp -= this.skill.getMpCost();
             hero.addStatus("Poison");
             System.out.println(this.name + " menggunakan skill 'Gigit' pada " + hero.name);
         }

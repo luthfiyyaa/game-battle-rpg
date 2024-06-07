@@ -5,25 +5,25 @@ public class Knight extends Hero {
 
     @Override
     public void attack (Character foe){
-        if (foe.armor.value > 0) {
-            foe.armor.value -= this.senjata.ap;
-            if (foe.armor.value < 0) {
-                foe.hp += foe.armor.value;
-                foe.armor.value = 0;
+        if (foe.armor.getValue() > 0) {
+            foe.armor.setValue(this.armor.getValue() - this.senjata.getAp());
+            if (foe.armor.getValue() < 0) {
+                foe.hp += foe.armor.getValue();
+                foe.armor.setValue(0);
             }
-            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.name + " dan mengurangi " + this.senjata.ap + " Armor");
+            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.getName() + " dan mengurangi " + this.senjata.getAp() + " Armor");
         } else {
-            int damage = this.senjata.ap;
+            int damage = this.senjata.getAp();
             foe.hp -= damage;
-            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.name + " dan mengurangi " + damage + " HP");
+            System.out.println(this.name + " menyerang " + foe.name + " dengan " + this.senjata.getName() + " dan mengurangi " + damage + " HP");
         }
     }
 
     @Override
     public void useSkill(Character foe){
-        if (this.skill.name.equals("Shield")) {
-            foe.armor.value += this.skill.damage;
-            System.out.println(this.name + " menggunakan " + this.skill.name + " dan menambahkan " + this.skill.damage + " Armor");
+        if (this.skill.getNameSkill().equals("Shield")) {
+            foe.armor.setValue(this.armor.getValue() + this.skill.getDamage());
+            System.out.println(this.name + " menggunakan " + this.skill.getNameSkill() + " dan menambahkan " + this.skill.getDamage() + " Armor");
         }
     }
 }
